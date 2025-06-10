@@ -9,6 +9,7 @@
 #password length should not be less than 10
 name = input("Enter your name: ")
 
+
 contact = input("Enter your contact number: ")
 if contact.isdigit() and len(contact) == 10:
     email = input("Enter your email: ")
