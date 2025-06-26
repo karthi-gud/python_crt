@@ -1,0 +1,20 @@
+dict={101:'python',102:'java',103:'SQL',104:'loly'}
+fees={'rahul':200,'raj':201,'karri':202}
+print(dict)
+print(type(dict))
+print(dict[101])  
+print(fees['raj'])
+print(dict[102],fees['rahul'])
+dict[101]='katraj'
+print(dict)
+dict[105]='jolly'
+print(dict)
+#pop(remove)
+dict.pop(101),fees.pop('rahul')
+#del dict('loly')
+print(dict)
+print(fees)
+print(len(fees))
+print(dict.keys())
+print(dict.values())
+print(dict.items())

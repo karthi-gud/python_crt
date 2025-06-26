@@ -9,6 +9,6 @@ part1 = s[:size]
 part2 = s[size:2*size]
 part3 = s[2*size:]
 
-print("First part:", part1)
-print("Second part:", part2)
-print("Third part:", part3)
+print("First part:",part1)
+print("Second part:",part2)
+print("Third part:",part3)
