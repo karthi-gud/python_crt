@@ -1,0 +1,5 @@
+introduction:
+1. stack is alinear data structure like arrays and linked list
+2.Stacks of the simple data structure that allow us to store and retrieve data sequentially 
+3. It is an abstract data type
+4. In a stack the order in which the data arrives is essentially it follows the LIFO
