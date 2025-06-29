@@ -1,0 +1,40 @@
+Errors:
+1)Compilation Error
+2)Logical Error
+3)Run-Time Error
+
+Exception: An Exception is an runtime error which can be handled by the programmer.
+All Exceptions are represented as classes in python.
+
+Types of Exceptions:
+1)Built-in Exception - Exceptions which are already predefined.(available in Python Language.)
+                        The Base class for all Built-in Exceptions is BaseException class.
+2)User-Defined Exception - A programmer can create his own Exceptions, called User-Defined Exceptions.
+
+
+
+
+base except-->exception--->[standard error,warning ]
+standard errors--->[syntax error,type error,EOF error,runtime error,import eror,name error]
+warning error--->[deprecation warning,runtime warning,implementing warning]
+
+
+Exception Handling
+Try - The try block contains code which may cause exceptions.
+Syntax-try:
+statements
+Except - The except block is used to catch an exception that is raised in the try block.
+There can be multiple except block for try block.
+Syntax-except ExceptionName:
+statements
+
+
+We can write several except blocks for a single try block.
+• We can write multiple except blocks to handle multiple exceptions.
+• We can write try block without any except blocks.
+• We can not write except block without a try block.
+• Finally block is always executed irrespective of whether there is an exception or not.
+• Else block is optional.
+• Finally block is optional.
+
+in

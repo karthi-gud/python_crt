@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notion-like Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="notion-container">
+        <aside class="notion-sidebar">
+            <h2>Sections</h2>
+            <ul>
+                <li><a href="{{ url_for('index') }}" {% if not section_id %}class="active"{% endif %}>All Tasks</a></li>
+                {% for section in sections %}
+                <li>
+                    <a href="{{ url_for('index', section=section.id) }}" {% if section_id==section.id %}class="active"{% endif %}>{{ section.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <form method="post" action="/add_section" class="add-form">
+                <input type="text" name="section_name" placeholder="Add Section" required>
+                <button type="submit">+</button>
+            </form>
+            <h2>Tags</h2>
+            <ul>
+                <li><a href="{{ url_for('index') }}" {% if not tag_id %}class="active"{% endif %}>All Tags</a></li>
+                {% for tag in tags %}
+                <li>
+                    <a href="{{ url_for('index', tag=tag.id) }}" {% if tag_id==tag.id %}class="active"{% endif %}>#{{ tag.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <form method="post" action="/add_tag" class="add-form">
+                <input type="text" name="tag_name" placeholder="Add Tag" required>
+                <button type="submit">+</button>
+            </form>
+        </aside>
+        <main class="notion-main">
+            <header>
+                <h1>Tasks</h1>
+                <form method="get" action="/" class="search-sort">
+                    <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+                    <select name="sort">
+                        <option value="due_date" {% if sort_by=='due_date' %}selected{% endif %}>Sort by Due Date</option>
+                        <option value="priority" {% if sort_by=='priority' %}selected{% endif %}>Sort by Priority</option>
+                    </select>
+                    <button type="submit">Go</button>
+                    <a href="/export" class="export-btn">Export CSV</a>
+                </form>
+            </header>
+            <section class="add-task-section">
+                <form method="post" action="/add" class="add-task-form">
+                    <input type="text" name="title" placeholder="Task Title" required>
+                    <input type="text" name="description" placeholder="Description">
+                    <input type="date" name="due_date">
+                    <select name="priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <select name="section_id">
+                        <option value="">No Section</option>
+                        {% for section in sections %}
+                            <option value="{{section.id}}">{{section.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="tags" multiple>
+                        {% for tag in tags %}
+                            <option value="{{tag.id}}">{{tag.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Add Task</button>
+                </form>
+            </section>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul class="flash-messages">
+                {% for category, message in messages %}
+                  <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <section class="tasks-list">
+                {% for task in tasks %}
+                <div class="notion-task {% if task.status == 'Completed' %}completed{% endif %}">
+                    <form method="post" action="/edit/{{task.id}}" class="edit-task-form">
+                        <input name="title" value="{{task.title}}" class="task-title {% if task.status == 'Completed' %}completed{% endif %}">
+                        <input name="description" value="{{task.description}}" class="task-desc">
+                        <input type="date" name="due_date" value="{{task.due_date}}">
+                        <select name="priority">
+                            <option value="Low" {% if task.priority=='Low' %}selected{% endif %}>Low</option>
+                            <option value="Medium" {% if task.priority=='Medium' %}selected{% endif %}>Medium</option>
+                            <option value="High" {% if task.priority=='High' %}selected{% endif %}>High</option>
+                        </select>
+                        <select name="section_id">
+                            <option value="">No Section</option>
+                            {% for section in sections %}
+                                <option value="{{section.id}}" {% if task.section_id==section.id %}selected{% endif %}>{{section.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="tags" multiple>
+                            {% for tag in tags %}
+                                <option value="{{tag.id}}" {% if tag in task.tags %}selected{% endif %}>{{tag.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="task-status">{{task.status}}</span>
+                        <button type="submit" class="edit-btn">Save</button>
+                        <a href="/delete/{{task.id}}" class="delete-btn">Delete</a>
+                        {% if task.status != 'Completed' %}
+                        <a href="/complete/{{task.id}}" class="complete-btn">Mark Complete</a>
+                        {% endif %}
+                    </form>
+                </div>
+                {% else %}
+                <p class="no-tasks">No tasks found.</p>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

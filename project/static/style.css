@@ -1,0 +1,189 @@
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    background: #f7f6f3;
+    color: #222;
+}
+.notion-container {
+    display: flex;
+    min-height: 100vh;
+}
+.notion-sidebar {
+    width: 260px;
+    background: #fff;
+    border-right: 1px solid #ececec;
+    padding: 32px 20px 20px 20px;
+    box-sizing: border-box;
+}
+.notion-sidebar h2 {
+    font-size: 1.1em;
+    margin: 0 0 10px 0;
+    color: #888;
+    font-weight: 600;
+}
+.notion-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+.notion-sidebar ul li {
+    margin-bottom: 6px;
+}
+.notion-sidebar ul li a {
+    text-decoration: none;
+    color: #222;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: block;
+    transition: background 0.2s;
+}
+.notion-sidebar ul li a.active,
+.notion-sidebar ul li a:hover {
+    background: #ececec;
+}
+.add-form {
+    display: flex;
+    margin-bottom: 18px;
+}
+.add-form input {
+    flex: 1;
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.add-form button {
+    padding: 5px 10px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+.notion-main {
+    flex: 1;
+    padding: 40px 40px 40px 40px;
+    background: #f7f6f3;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+}
+.search-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-sort input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.search-sort select, .search-sort button, .search-sort .export-btn {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+.search-sort .export-btn {
+    background: #f5f5f5;
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+}
+.add-task-section {
+    margin: 30px 0 20px 0;
+}
+.add-task-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.add-task-form input,
+.add-task-form select,
+.add-task-form button {
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.add-task-form button {
+    background: #222;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+.flash-messages li {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+.flash-messages .success { background: #e6f9e6; color: #1a7f37; }
+.flash-messages .info { background: #e6f0fa; color: #1a4f7a; }
+.flash-messages .danger { background: #fbeaea; color: #a94442; }
+.tasks-list {
+    margin-top: 20px;
+}
+.notion-task {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    padding: 18px 18px 12px 18px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.notion-task.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+.edit-task-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.edit-task-form input,
+.edit-task-form select {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.edit-btn, .delete-btn, .complete-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.edit-btn { background: #f5f5f5; color: #222; }
+.delete-btn { background: #ffeaea; color: #a94442; }
+.complete-btn { background: #e6f9e6; color: #1a7f37; }
+.task-title.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+.no-tasks {
+    color: #888;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2em;
+}
+@media (max-width: 900px) {
+    .notion-container { flex-direction: column; }
+    .notion-sidebar { width: 100%; border-right: none; border-bottom: 1px solid #ececec; }
+    .notion-main { padding: 20px; }
+}

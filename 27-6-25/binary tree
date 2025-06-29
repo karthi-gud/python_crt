@@ -1,0 +1,50 @@
+#Trees
+What is A Tree?
+- A tree is a data structure similar to a linked list but instead of each node pointing simply to the next node in a linear fashion, 
+each node points to several nodes.
+- A tree is an example of a non-linear data structure.
+- A tree structure is a way of representing the hierarchical nature of a structure in a graphical form.
+
+Terminology Of Trees
+Root Node - The root of a Tree is the Node with no Parents is called Root Node(1st element).
+Edge - A link from a parent to a child.
+Leaf Node - A node with no children.
+Sibling Nodes - the children nodes of the same parent are called Siblings.
+The depth of the node is the length of the path from the root to the node.
+The Height of the node is the length of the path from the node to the deepest node.
+The Height of the Tree is the length of the path from the root to the deepest node in the tree.
+A (Rooted) tree with only one node (the root) has a Height of Zero.
+
+Binary Trees: 
+-->A Generic tree with atmost two child nodes for each parent node is known as a Binary Tree
+-->Two child nodes for each parent nodes
+-->A Binary tree is made up of that consistutes of left pointer,a right pointer and a data element.
+-->The root pointer is the topmost node.
+-->The left and right pointers recursively points to smaller subtrees on either side.
+-->An empty tree is also a Valid Binary tree.
+-->A Binary Tree is either empty(None pointer) or is made up of a single Node,where the left and right pointers 
+each point to a Binary Tree.
+
+
+Types of Binary Trees:
+1)Full Binary Tree : A Binary tree in which every node had 0 or 2 children is termed as full Binary Tree.
+2)Complete Binary Tree : A Complete Binary Tree has all the levels filled except for the last level, which has 
+                         all its nodes as much as to the left
+3)Perfect Binary Tree: A Binary tree is termed Perfect when all of its internal nodes have two children along with the 
+                       leaf nodes that are at the same level.
+4)Degenerate Tree: Each internal node has only one child.
+5)Balanced Binary Tree: A Binary tree in which the difference between the depth of the two subtrees of every node is at 
+                        most one is called a Balanced Binary Tree.
+
+Operations on Binary Trees:
+Basic Operations: --> Inserting an element into a tree
+                      Deleting an element from a tree   
+                      Searching for an element
+                      Traversing the tree 
+
+Auxillary Operations: --> Finding the Size of the tree
+                      --> Finding the Height of the tree
+                      --> Finding the level which has the maximum sum and many more.
+
+
+binary tree auxilary

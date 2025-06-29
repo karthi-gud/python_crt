@@ -48,3 +48,8 @@ def sort_dates(dates):
 # Test with mixed year formats
 dates = ['01-01-2022', '20-12-2024', '15-06-23', '12-05-25']
 print(sort_dates(dates))
+
+
+
+
+

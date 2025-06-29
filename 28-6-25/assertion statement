@@ -1,0 +1,6 @@
+''' It is useful to ensure that given condition is True
+if false it raises an assertionerror.
+Syntax: assert condition, error_message.
+If the Condition is false the exception by the name AssertionError is raised along with the message.
+If the message is not given and the condition is False then also AssertionError is raised without message.
+'''
